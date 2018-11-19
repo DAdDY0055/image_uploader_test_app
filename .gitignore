@@ -17,3 +17,7 @@
 /yarn-error.log
 
 .byebug_history
+
+# Ignore upload_files
+/Users/takuya/exifr/image_uploader_test_app/public/uploads/feed/image/*
+/Users/takuya/exifr/image_uploader_test_app/public/uploads/tmp/*
