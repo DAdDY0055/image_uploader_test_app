@@ -6,9 +6,10 @@
 </p>
 
 <script type="text/javascript">
-    function initMap() 
+    function initMap() {
 
-        var test ={lat: <%= @feed.latitude %>, lng: <%= @feed.longitude %>};
+        var test ={lat: <%= EXIFR::JPEG.new(@feed.image.file.file).gps.latitude %>, lng: <%= EXIFR::JPEG.new(@feed.image.file.file).gps.longitude %>};
+        <% binding.pry %>
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 15,
             center: test
@@ -46,11 +47,12 @@
 <p>
   <strong>Latitude:</strong>
   <%= @feed.latitude %>
+  <%= EXIFR::JPEG.new(@feed.image.file.file).gps.latitude %>
 </p>
 
 <p>
   <strong>Longitude:</strong>
-  <%= @feed.longitude %>
+  <%= EXIFR::JPEG.new(@feed.image.file.file).gps.longitude %>
 </p>
 
 <style type="text/css">

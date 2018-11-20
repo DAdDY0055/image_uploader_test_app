@@ -3,12 +3,16 @@ class ImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
   # Choose what kind of storage to use for this uploader:
+
   storage :file
   # storage :fog
   process :get_exif_info
 
   def get_exif_info
-    exif = EXIFR::JPEG::new(self.file.file)
+    require 'exifr/jpeg'
+
+    @latitude  = EXIFR::JPEG::new(self.file.file).gps.latitude
+    @longitude = EXIFR::JPEG::new(self.file.file).gps.longitude
     binding.pry
   end
   # Override the directory where uploaded files will be stored.

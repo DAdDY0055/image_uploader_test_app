@@ -2,6 +2,7 @@
     function initMap() {
 
         var test ={lat: <%= @map.latitude %>, lng: <%= @map.longitude %>};
+        <% binding.pry %>
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 15,
             center: test

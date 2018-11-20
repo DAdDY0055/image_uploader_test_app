@@ -10,6 +10,8 @@ class FeedsController < ApplicationController
   # GET /feeds/1
   # GET /feeds/1.json
   def show
+    require 'exifr/jpeg'
+    @exif = EXIFR::JPEG.new(@feed.image.file.file)
   end
 
   # GET /feeds/new
