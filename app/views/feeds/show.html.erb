@@ -47,12 +47,11 @@
 <p>
   <strong>Latitude:</strong>
   <%= @feed.latitude %>
-  <%= EXIFR::JPEG.new(@feed.image.file.file).gps.latitude %>
 </p>
 
 <p>
   <strong>Longitude:</strong>
-  <%= EXIFR::JPEG.new(@feed.image.file.file).gps.longitude %>
+  <%= @feed.longitude %>
 </p>
 
 <style type="text/css">

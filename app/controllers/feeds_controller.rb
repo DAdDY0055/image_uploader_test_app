@@ -35,6 +35,9 @@ class FeedsController < ApplicationController
   # POST /feeds.json
   def create
     @feed = Feed.new(feed_params)
+    @feed.latitude = EXIFR::JPEG::new(@feed.image.file.file).gps.latitude
+    @feed.longitude = EXIFR::JPEG::new(@feed.image.file.file).gps.longitude
+    binding.pry
 
     respond_to do |format|
       if @feed.save
